@@ -10,7 +10,7 @@
 # > 番茄小说：移除底部「短剧/剧场」Tab
 # 说明：
 # 1. 推荐放在可莉原插件后面作为补丁。
-# 2. script-path 可改为你自己的 raw/Gist 地址；如果使用本地脚本，文件名保持 fanqie_remove_drama_tab.js。
+# 2. script-path=https://raw.githubusercontent.com/qj6jpt2qw-svg/loon-rules/main/fanqie_remove_drama_tab.js
 # 3. 若不生效，用 Loon 抓包搜索“短剧/剧场/drama/shortplay”，把对应 path 加到此正则。
 http-response ^https?:\/\/(?:api\d?-normal-(?:lf|lq)|api)\.fqnovel\.com\/.*(?:tab|tabs|homepage|home_page|navigation|navigator|bottom|config|launch|feed|channel|entrance|user|mine).* script-path=fanqie_remove_drama_tab.js, requires-body=true, max-size=0, timeout=10, tag=番茄小说_移除短剧入口
 
