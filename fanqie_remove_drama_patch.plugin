@@ -1,0 +1,18 @@
+#!name=番茄小说去广告-补丁-移除底部短剧入口
+#!desc=配合可莉的「番茄小说去广告」使用：移除番茄小说 App 底部「短剧/剧场」入口。若未命中，请抓包后把实际 tab/config 接口路径加进正则。
+#!author=ChatGPT Patch
+#!category=iKeLee
+#!openUrl=https://apps.apple.com/app/id1468454200
+#!tag=去广告
+#!loon_version=3.2.4
+
+[Script]
+# > 番茄小说：移除底部「短剧/剧场」Tab
+# 说明：
+# 1. 推荐放在可莉原插件后面作为补丁。
+# 2. script-path 可改为你自己的 raw/Gist 地址；如果使用本地脚本，文件名保持 fanqie_remove_drama_tab.js。
+# 3. 若不生效，用 Loon 抓包搜索“短剧/剧场/drama/shortplay”，把对应 path 加到此正则。
+http-response ^https?:\/\/(?:api\d?-normal-(?:lf|lq)|api)\.fqnovel\.com\/.*(?:tab|tabs|homepage|home_page|navigation|navigator|bottom|config|launch|feed|channel|entrance|user|mine).* script-path=fanqie_remove_drama_tab.js, requires-body=true, max-size=0, timeout=10, tag=番茄小说_移除短剧入口
+
+[MITM]
+hostname = api*.fqnovel.com, *.fqnovel.com
